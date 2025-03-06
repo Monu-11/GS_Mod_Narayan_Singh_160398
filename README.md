@@ -70,6 +70,26 @@ Then start the production server:
 yarn start
 ```
 
+## Accomplishments and Proficiency Demonstration
+
+### What Was Done Well
+
+- **Authentication with NextAuth.js**: Implemented secure authentication using NextAuth.js, showcasing expertise in authentication flows.
+- **Efficient API Handling**: Designed RESTful API endpoints with proper error handling and validation, demonstrating backend proficiency.
+- **Optimized Database Queries**: Used efficient MongoDB queries to ensure performance and scalability.
+
+These elements highlight my ability to build secure, well-structured, and scalable applications.
+
+## Potential Improvements with More Time
+
+If given **4 additional hours**, I would:
+
+- **Enhance UI/UX**: Improve frontend responsiveness and accessibility for a better user experience.
+- **Optimize Performance**: Implement caching mechanisms and optimize data queries further.
+- **Improve Code Documentation**: Add comprehensive inline documentation and update the README with more details on API usage.
+
+These improvements would enhance the application's reliability, usability, and efficiency.
+
 ## License
 
 This project is licensed under the MIT License.
