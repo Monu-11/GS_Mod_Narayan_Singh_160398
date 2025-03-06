@@ -2,11 +2,15 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { registerApi } from '@/services/register';
 import storeReducer from './features/storeSlice';
 import skuReducer from './features/skuSlice';
+import planningReducer from './features/planningSlice';
+import calendarReducer from './features/calendarSlice';
 
 const rootReducer = combineReducers({
   [registerApi.reducerPath]: registerApi.reducer,
   stores: storeReducer,
   sku: skuReducer,
+  planning: planningReducer,
+  calendar: calendarReducer,
 });
 
 export const makeStore = () => {

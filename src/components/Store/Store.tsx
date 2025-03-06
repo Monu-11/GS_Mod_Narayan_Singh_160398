@@ -69,7 +69,7 @@ const Store = () => {
           </button>
         ),
       },
-      { headerName: 'Seq No.', field: 'SeqNo', rowDrag: true },
+      { headerName: 'SeqNo', field: 'SeqNo', rowDrag: true },
       { headerName: 'ID', field: 'ID' },
       { headerName: 'Label', field: 'Label' },
       { headerName: 'City', field: 'City' },

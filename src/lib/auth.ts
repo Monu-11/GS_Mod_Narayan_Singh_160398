@@ -1,13 +1,8 @@
-import { getServerSession, NextAuthOptions } from 'next-auth';
+import { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import User from '@/model/User';
 import dbConnect from './dbConnect';
-import type {
-  GetServerSidePropsContext,
-  NextApiRequest,
-  NextApiResponse,
-} from 'next';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -75,6 +70,7 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/login',
+    error: '/login',
   },
   session: {
     strategy: 'jwt',
@@ -82,19 +78,3 @@ export const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET!,
 };
-
-// // You'll need to import and pass this
-// // to `NextAuth` in `app/api/auth/[...nextauth]/route.ts`
-export const config = {
-  providers: [], // rest of your config
-} satisfies NextAuthOptions;
-
-// Use it in server contexts
-export function auth(
-  ...args:
-    | [GetServerSidePropsContext['req'], GetServerSidePropsContext['res']]
-    | [NextApiRequest, NextApiResponse]
-    | []
-) {
-  return getServerSession(...args, config);
-}
