@@ -20,9 +20,11 @@ const Login = () => {
     resolver: zodResolver(userSchema),
   });
   const router = useRouter();
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   const onSubmit = async (data: AuthFormData) => {
+    setLoading(true);
     const result = await signIn('credentials', {
       email: data.email,
       password: data.password,
@@ -33,6 +35,7 @@ const Login = () => {
       toast.error(result.error);
     } else {
       toast.success('Login successful!');
+      setLoading(false);
       router.push('/dashboard');
     }
   };
@@ -49,7 +52,6 @@ const Login = () => {
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
-          {/* Email Input */}
           <div className='relative'>
             <Mail className='absolute top-3 left-3 h-5 w-5 text-gray-400' />
             <input
@@ -65,8 +67,6 @@ const Login = () => {
               </p>
             )}
           </div>
-
-          {/* Password Input */}
           <div className='relative'>
             <Lock className='absolute top-3 left-3 h-5 w-5 text-gray-400' />
             <input
@@ -94,8 +94,8 @@ const Login = () => {
             )}
           </div>
 
-          {/* Submit Button */}
           <button
+            disabled={isLoading}
             type='submit'
             className='w-full rounded-lg bg-blue-600 p-3 text-white transition hover:bg-blue-700'
           >

@@ -4,8 +4,9 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const registerApi = createApi({
   reducerPath: QUERY_KEYS.REGISTER_USER,
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.NEXT_PUBLIC_API_URL}/sign-up`,
+    baseUrl: `api/sign-up`,
   }),
+  
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query: (userData: { email: string; password: string }) => ({
@@ -18,3 +19,4 @@ export const registerApi = createApi({
 });
 
 export const { useRegisterUserMutation } = registerApi;
+

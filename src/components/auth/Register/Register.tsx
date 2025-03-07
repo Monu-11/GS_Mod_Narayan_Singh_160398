@@ -42,14 +42,13 @@ const Register = () => {
         </h2>
 
         <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
-          {/* Email Input */}
           <div className='relative'>
             <Mail className='absolute top-3 left-3 h-5 w-5 text-gray-400' />
             <input
               type='email'
               placeholder='Enter your email'
               {...register('email')}
-              autoComplete='email' // Add autocomplete attribute here
+              autoComplete='email'
               className={`w-full rounded-lg border border-gray-300 p-3 pl-10 transition outline-none focus:border-blue-500 ${
                 errors.email ? 'border-red-500 focus:border-red-500' : ''
               }`}
@@ -61,14 +60,13 @@ const Register = () => {
             )}
           </div>
 
-          {/* Password Input */}
           <div className='relative'>
             <Lock className='absolute top-3 left-3 h-5 w-5 text-gray-400' />
             <input
               type={showPassword ? 'text' : 'password'}
               placeholder='Create a password'
               {...register('password')}
-              autoComplete='current-password' // Add autocomplete attribute here
+              autoComplete='current-password'
               className={`w-full rounded-lg border border-gray-300 p-3 pr-10 pl-10 transition outline-none focus:border-blue-500 ${
                 errors.password ? 'border-red-500 focus:border-red-500' : ''
               }`}
@@ -91,7 +89,6 @@ const Register = () => {
             )}
           </div>
 
-          {/* Submit Button */}
           <button
             type='submit'
             disabled={isLoading}
@@ -101,7 +98,6 @@ const Register = () => {
           </button>
         </form>
 
-        {/* Login Link */}
         <p className='mt-4 text-center text-sm text-gray-600'>
           Already have an account?
           <Link href='/login' className='ml-1 text-green-600 hover:underline'>
